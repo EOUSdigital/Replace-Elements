@@ -1,0 +1,29 @@
+"use strict";
+
+//TODO 🟦 Module 7 - DOM Manipulation: Lesson 10. Refactor to Multiple Functions
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
