@@ -69,3 +69,31 @@ window.addEventListener("DOMContentLoaded", () => {
 //  • The second item should keep the same data-id value it had before replacement
 
 
+//TODO  Replacing breaks direct event listeners
+
+//? Challenge (teaching mode: pseudocode + constraints + tiny hint)
+
+const ul = document.querySelector("#section3 .tasks");
+if (!ul) throw new Error("Cannot find #section3 .tasks");
+
+function ensureDeleteButton(li) {
+    if (!li.querySelector("[data-action='delete']")) {
+        const btn = document.createElement('button');
+        btn.dataset.action = 'delete';
+        btn.className = "btn-delete";
+        btn.textContent = 'Delete';
+        li.append(btn);
+    };
+};
+
+const tasks = ul.querySelectorAll("li.task");
+tasks.forEach(ensureDeleteButton);
+
+ul.addEventListener("click", (e) => {
+    const btn = e.target.closest("[data-action='delete']");
+    if (!btn) return;
+
+    const taskItem = btn.closest("li.task");
+    if (taskItem) taskItem.remove();
+});
+
